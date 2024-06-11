@@ -13,6 +13,8 @@ What's the standard deviation of the predicted duration for this dataset?
 12.28
 18.28
 
+Answer: 6.24
+
 ## Q2. Preparing the output
 Like in the course videos, we want to prepare the dataframe with the output.
 
@@ -35,6 +37,9 @@ What's the size of the output file?
 46M
 56M
 66M
+
+Answer: 66 M
+
 Note: Make sure you use the snippet above for saving the file. It should contain only these two columns. For this question, don't change the dtypes of the columns and use pyarrow, not fastparquet.
 
 ## Q3. Creating the scoring script

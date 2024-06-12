@@ -47,6 +47,8 @@ Now let's turn the notebook into a script.
 
 Which command you need to execute for that?
 
+Answer:  jupyter nbconvert --to script score.ipynb
+
 ## Q4. Virtual environment
 Now let's put everything into a virtual environment. We'll use pipenv for that.
 
@@ -55,6 +57,8 @@ Install all the required libraries. Pay attention to the Scikit-Learn version: i
 After installing the libraries, pipenv creates two files: Pipfile and Pipfile.lock. The Pipfile.lock file keeps the hashes of the dependencies we use for the virtual env.
 
 What's the first hash for the Scikit-Learn dependency?
+
+Answer: sha256:08ef968f6b72033c16c479c966bf37ccd49b06ea91b765e1cc27afefe723920b
 
 ## Q5. Parametrize the script
 Let's now make the script configurable via CLI. We'll create two parameters: year and month.
@@ -68,6 +72,8 @@ What's the mean predicted duration?
 21.29
 28.29
 Hint: just add a print statement to your script.
+
+Answer: 14.29
 
 ## Q6. Docker container
 Finally, we'll package the script in the docker container. For that, you'll need to use a base image that we prepared.

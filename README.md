@@ -25,5 +25,10 @@ docker build -t duration-predictions .
 The first command line argument is for year, the second is for month, and the third argument is the name of your S3 bucket.
 
 ```bash
-docker run --env-file .env.aws duration-predictions 2023 5 <YOUR-BUCKET-NAME>
+docker run --env-file .env.aws duration-predictions <YEAR> <MONTH> <YOUR-BUCKET-NAME>
+```
+
+Example Command: 
+```bash
+docker run --env-file .env.aws duration-predictions 2023 5 mlops-bucket-mannerow
 ```

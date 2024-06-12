@@ -8,6 +8,8 @@ scikit-learn = "==1.0.2"
 pandas = "*"
 pyarrow = "*"
 fastparquet = "*"
+s3fs = "*"
+urllib3 = "*"
 
 [dev-packages]
 

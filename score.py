@@ -4,6 +4,8 @@
 import pickle
 import pandas as pd
 import sys
+import s3fs
+import os
 
 categorical = ['PULocationID', 'DOLocationID']
 
@@ -35,7 +37,7 @@ def create_ride_ids(df, year, month):
     df['ride_id'] = f'{year:04d}/{month:02d}_' + df.index.astype('str')
     return df
 
-def save_results(df, y_pred, output_file='results'):
+def save_results(df, y_pred, output_file):
     #Write the ride_id and the predictions to a dataframe with the results
     df_result = pd.DataFrame({
         'ride_id': df['ride_id'],  
@@ -53,6 +55,7 @@ def run():
     #Take the year and month from the arguements
     year = int(sys.argv[1])
     month = int(sys.argv[2]) 
+    bucket_name = str(sys.argv[3]) 
 
     df = read_data(f"https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_{year}-{month:02}.parquet")
     dv, model = load_model()
@@ -69,7 +72,9 @@ def run():
 
     # Create an artificial ride_id column
     df = create_ride_ids(df, year, month)
-    save_results(df, y_pred, )
+
+    output_file = f's3://{bucket_name}/nyc-taxi-duration/results.parquet'
+    save_results(df, y_pred, output_file)
 
 if __name__ == '__main__':
     run()
